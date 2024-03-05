@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="project.CSS"/>
+    <link rel="stylesheet" href="project.CSS" />
 </head>
+
 <body>
     <div class="container">
-        <form action= "">
-        <h1>Register</h1>
-        <p>Enter your Gender and DOB to get your Akan Name </p>
-        <hr/>
-        <label for="gender"></label><b>Gender</b></label>
-        <select placeholder="gender" name="gender" id="gender" required>
-        <option value ="male">Male</option>
-        <option value ="female">Female</option>
-        <label for="dob" ><b>Date of Birth YY-MM-DD</b></label>
-        <input type="text" id="dob" name="dob" pattern="\d{2}-\d{2}-\d{2}" placeholder="yy-mm-dd" required>
-        <hr/>
-        <button class='registerbtn' type="button" onclick="calculateDayOfWeek()">Get Your Akan Name</button>
+        <form action="">
+            <h1>Register</h1>
+            <p>Enter your Gender and DOB to get your Akan Name </p>
+            <hr />
+            <label for="gender"></label><b>Gender</b></label>
+            <select placeholder="gender" name="gender" id="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <label for="dob"><b>Date of Birth YY-MM-DD</b></label>
+                <input type="text" id="dob" name="dob" pattern="\d{2}-\d{2}-\d{2}" placeholder="yy-mm-dd" required>
+                <hr />
+                <button class='registerbtn' type="button" onclick="calculateDayOfWeek()">Get Your Akan Name</button>
         </form>
     </div>
     <script>
@@ -46,41 +48,42 @@
                 day
             ) % 7 + 7) % 7; // Adding 7 to handle negative results
 
-        
-             // Checking the day to allocate the Akan name
-             if (dayOfWeek === 1 && gender === 'female') {
+
+            // Checking the day to allocate the Akan name
+            if (dayOfWeek === 1 && gender === 'female') {
                 console.log('Your Akan name is Adowa');
             } else if (dayOfWeek === 1 && gender === 'male') {
                 console.log('Your Akan name is Kwadwo');
-            } else if (dayOfWeek === 2 && gender === 'female'){
+            } else if (dayOfWeek === 2 && gender === 'female') {
                 console.log('Your Akan name is Abeena');
-            }else if (dayOfWeek === 2 && gender === 'male'){
+            } else if (dayOfWeek === 2 && gender === 'male') {
                 console.log('Your Akan name is Kwabena');
-            }else if (dayOfWeek === 3 && gender === 'female'){
-                console.log('Your Akan name is Akua');  
-            }else if (dayOfWeek === 3 && gender === 'male'){
-                console.log('Your Akan name is Kwaku'); 
-            }else if (dayOfWeek === 4 && gender === 'female'){
+            } else if (dayOfWeek === 3 && gender === 'female') {
+                console.log('Your Akan name is Akua');
+            } else if (dayOfWeek === 3 && gender === 'male') {
+                console.log('Your Akan name is Kwaku');
+            } else if (dayOfWeek === 4 && gender === 'female') {
                 console.log('Your Akan name is Yaa');
-            }else if (dayOfWeek === 4 && gender === 'male'){
+            } else if (dayOfWeek === 4 && gender === 'male') {
                 console.log('Your Akan name is Yaw');
-            }else if (dayOfWeek === 5 && gender === 'female'){
+            } else if (dayOfWeek === 5 && gender === 'female') {
                 console.log('Your Akan name is Afua');
-            }else if (dayOfWeek === 5 && gender === 'male'){
+            } else if (dayOfWeek === 5 && gender === 'male') {
                 console.log('Your Akan name is Kofi');
-            }else if (dayOfWeek === 6 && gender === 'female'){
+            } else if (dayOfWeek === 6 && gender === 'female') {
                 console.log('Your Akan name is Ama');
-            }else if (dayOfWeek === 6 && gender === 'male'){
+            } else if (dayOfWeek === 6 && gender === 'male') {
                 console.log('Your Akan name is Kwame');
-            }else if (dayOfWeek === 7 && gender === 'female'){
+            } else if (dayOfWeek === 7 && gender === 'female') {
                 console.log('Your Akan name is Akosua');
-            }else if (dayOfWeek === 7 && gender === 'male'){
+            } else if (dayOfWeek === 7 && gender === 'male') {
                 console.log('Your Akan name is Kwasi');
-        
+
             }
         }
-        
+
     </script>
-    
+
 </body>
+
 </html>
