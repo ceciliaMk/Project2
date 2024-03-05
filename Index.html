@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <form action="">
-            <h1>AKAN Name generator (Day of Birth)</h1>
+            <h1><b>Akan Name generator (Day of Birth)</b></h1>
             <p>Enter your Gender and DOB to get your Akan Name from Ghana</p>
             <hr />
             <label for="gender"></label><b>Gender</b></label>
@@ -20,9 +20,10 @@
                 <option value="male">Male</option>
                 <option value="female">Female</option>
             </select>
-            <br/>
-                <label for="dob"><b>Date of Birth YY-MM-DD</b></label>
-                <input type="text" id="dob" name="dob" pattern="\d{2}-\d{2}-\d{2}" placeholder="yy-mm-dd" required>
+            <br>
+            <br>
+                <label for="dob"><b>Date of Birth YYYY-MM-DD</b></label>
+                <input type="text" id="dob" name="dob" pattern="\d{4}-\d{2}-\d{2}" placeholder="yyyy-mm-dd" required>
                 <hr />
                 <button class='registerbtn' type="button" onclick="calculateDayOfWeek()">Get Your Akan Name</button>
         </form>
