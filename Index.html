@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Akan Name Generator</title>
     <link rel="stylesheet" href="project.CSS" />
 </head>
 
@@ -15,17 +15,17 @@
             <h1><b>Akan Name generator (Day of Birth)</b></h1>
             <p>Enter your Gender and DOB to get your Akan Name from Ghana</p>
             <hr />
-            <label for="gender"></label><b>Gender</b></label>
+            <label for="gender"><b>Gender</b></label>
             <select placeholder="gender" name="gender" id="gender" required>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
             </select>
             <br>
             <br>
-                <label for="dob"><b>Date of Birth YYYY-MM-DD</b></label>
-                <input type="text" id="dob" name="dob" pattern="\d{2}-\d{2}-\d{2}" placeholder="yyyy-mm-dd" required>
-                <hr />
-                <button class='registerbtn' type="button" onclick="calculateDayOfWeek()">Get Your Akan Name</button>
+            <label for="dob"><b>Date of Birth YYYY-MM-DD</b></label>
+            <input type="text" id="dob" name="dob" pattern="\d{4}-\d{2}-\d{2}" placeholder="yyyy-mm-dd" required>
+            <hr />
+            <button class='registerbtn' type="button" onclick="calculateDayOfWeek()">Get Your Akan Name</button>
         </form>
     </div>
     <script>
@@ -33,8 +33,21 @@
             const gender = document.getElementById('gender').value;
             const dob = document.getElementById('dob').value;
 
+            // Validate the date format
+            const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+            if (!dateRegex.test(dob)) {
+                alert('Invalid date format. Please use YYYY-MM-DD.');
+                return;
+            }
+
             // Splitting the date into year, month, and day
             const [year, month, day] = dob.split('-').map(Number);
+
+            // Validate the month and day
+            if (month <= 0 || month > 12 || day <= 0 || day > 31) {
+                alert('Invalid month or day. Please enter valid values.');
+                return;
+            }
 
             // Adjusting the month value for the formula
             const adjustedMonth = (month - 2 + 12) % 12;
@@ -51,46 +64,41 @@
                 day
             ) % 7 + 7) % 7; // Adding 7 to handle negative results
 
-
             // Checking the day to allocate the Akan name
             let akanName = '';
-            //0 is Saturday, 1 Sunday, 2 Monday and so on
-            if (dayOfWeek === 0 && gender === 'female') {
-                akanName = 'Ama';
-            } else if (dayOfWeek === 0 && gender === 'male') {
-                akanName = 'Kwame';
-            } else if (dayOfWeek === 1 && gender === 'female') {
-                akanName = 'Akosua';
-            } else if (dayOfWeek === 1 && gender === 'male') {
-                akanName = 'Kwasi';
-            } else if (dayOfWeek === 2 && gender === 'female') {
-                akanName = 'Adowa';
-            } else if (dayOfWeek === 2 && gender === 'male') {
-                akanName = 'Kwado';
-            } else if (dayOfWeek === 3 && gender === 'female') {
-                akanName = 'Abenaa';
-            } else if (dayOfWeek === 3 && gender === 'male') {
-                akanName = 'Kwabena';
-            } else if (dayOfWeek === 4 && gender === 'female') {
-                 akanName = 'Akua';
-            } else if (dayOfWeek === 4 && gender === 'male') {
-                akanName = 'Kwaku';
-            } else if (dayOfWeek === 5 && gender === 'female') {
-                akanName = 'Yaa';
-            } else if (dayOfWeek === 5 && gender === 'male') {
-                akanName = 'Yaw';
-            } else if (dayOfWeek === 6 && gender === 'female') {
-                akanName = 'Afua';
-            } else if (dayOfWeek === 6 && gender === 'male') {
-                akanName = 'Kofi';
+            // 0 is Sunday, 1 Monday, 2 Tuesday, and so on
+            switch (dayOfWeek) {
+                case 0:
+                    akanName = (gender === 'female') ? 'Akosua' : 'Kwasi';
+                    break;
+                case 1:
+                    akanName = (gender === 'female') ? 'Adwoa' : 'Kwadwo';
+                    break;
+                case 2:
+                    akanName = (gender === 'female') ? 'Abenaa' : 'Kwabena';
+                    break;
+                case 3:
+                    akanName = (gender === 'female') ? 'Akua' : 'Kwaku';
+                    break;
+                case 4:
+                    akanName = (gender === 'female') ? 'Yaa' : 'Yaw';
+                    break;
+                case 5:
+                    akanName = (gender === 'female') ? 'Afua' : 'Kofi';
+                    break;
+                case 6:
+                    akanName = (gender === 'female') ? 'Ama' : 'Kwame';
+                    break;
+                default:
+                    akanName = 'Unknown';
+            }
 
-            }
-            //Display the Akan name as an alert
-            if (akanName){
-                alert('Your Akan Name is ' + akanName);
-            }
+            // Display the Akan name as an alert
+            alert('Your Akan Name is ' + akanName);
+
+            // Reset the form
+            document.getElementById('akanForm').reset();
         }
-
     </script>
 
 </body>
